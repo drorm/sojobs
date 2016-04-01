@@ -1,0 +1,45 @@
+<div class="login-box">
+  <div class="login-box-body">
+
+    <p class="login-box-msg">Please Login</p>
+
+    <form class="form-signin" name='loginForm' novalidate ng-submit="login()">  
+      <div class="form-group has-feedback">
+        <input type="email" name='email' id="inputEmail" ng-model="user.email" class="form-control" placeholder="Email address" required autofocus>
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        <p ng-show="loginForm.email.$invalid && loginForm.email.$touched" class="alert-warning help-block">Email is required.</p>
+      </div>
+
+      <div class="form-group has-feedback">
+        <input  type="password" name='password' id="inputPassword" ng-model="user.password" class="form-control" placeholder="Password" required>
+        <p ng-show="loginForm.password.$invalid && loginForm.password.$touched" class="alert-warning help-block">Password is required.</p>
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-8">
+          <div class="checkbox icheck">
+            <label>
+              <input type="checkbox"> Remember Me
+            </label>
+          </div>
+        </div>
+
+
+      <div class="col-xs-4">
+        <button ng-disabled="loginForm.$invalid" class="btn btn-primary btn-block btn-flat" type="submit">Log in</button>
+      </div>
+      </div>
+      <h3 cg-busy="{promise:loginPromise,message:'Logging you in ...',templateUrl:'node_modules/angular-busy/angular-busy.html'}"></h3>
+      <div class="alert alert-danger" role="alert" id="login_error" ng-show='loginError'>
+        Invalid email or password
+      </div>
+
+    <div class="social-auth-links text-center">
+    </div>
+    <p> <a href="#/signup" id='signup' class="text-center">Sign Up</a></p>
+    <p><a href="#/forgotPassword" class='text-center'> Forgot your password?</a></p>
+    </div>    
+  </form>
+</div>
+</div>

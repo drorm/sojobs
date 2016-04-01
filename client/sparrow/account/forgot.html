@@ -1,0 +1,25 @@
+<div class="login-box">
+  <div class="login-box-body">
+    <form name='form-signin' class="form-signin" novalidate ng-submit="forgot()">  
+      <h3 class="form-signin-heading">Reset Your Password</h3>
+
+      <div class="form-group has-feedback">
+      <input type="email" name='email' id="forgotEmail" ng-model="user.email" class="form-control" placeholder="Email address" required autofocus>
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+      <p ng-show="forgotForm.email.$invalid && forgotForm.email.$touched" class="alert-warning help-block">Field is required.</p>
+
+    </div>
+
+      <div class="row">
+      <div class="col-xs-4">
+      <button ng-disabled='forgotForm.$invalid' class="btn btn-lg btn-primary btn-block" type="submit">Send</button>
+      </div>
+      </div>
+      <div class="alert alert-danger" role="alert" ng-show='forgotError'>
+        Sorry. Can't find this email!
+      </div>
+
+    </form>
+
+  </div>
+</div>

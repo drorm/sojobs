@@ -1,0 +1,60 @@
+<div class="register-box">
+  <div class="register-box-body">
+    <p class="login-box-msg">Please sign up</p>
+    <form name='signupForm' class="form-signin" ng-submit="register()">  
+
+      <div class="form-group has-feedback">
+        <input name='first' type="text" id="first" ng-model="user.first" class="form-control" placeholder="First Name" required autofocus>
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+        <p ng-show="signupForm.first.$invalid && signupForm.first.$touched" class="alert-warning help-block">Field is required.</p>
+      </div>
+
+      <div class="form-group has-feedback">
+        <input name='last' type="text" id="last"  ng-model="user.last"class="form-control" placeholder="Last Name" required>
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+        <p ng-show="signupForm.last.$invalid && signupForm.last.$touched" class="alert-warning help-block">Field is required.</p>
+      </div>
+
+      <div class="form-group has-feedback">
+        <input name='email' type="email" id="inputEmail" ng-model="user.email" class="form-control" placeholder="Email address" required>
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        <p ng-show="signupForm.email.$invalid && signupForm.email.$touched" class="alert-warning help-block">Field is required.</p>
+      </div>
+
+      <div class="form-group has-feedback">
+        <input name='password' type="password" id="inputPassword" ng-model="user.password" class="form-control" placeholder="Password" required>
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        <p ng-show="signupForm.password.$invalid && signupForm.password.$touched" class="alert-warning help-block">Field is required.</p>
+      </div>
+
+      <div class="form-group has-feedback">
+        <input name='password2' type="password" id="inputPassword2" ng-model="user.password2" class="form-control" placeholder="Password again" required>
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        <p ng-show="signupForm.password2.$invalid && signupForm.password2.$touched" class="alert-warning help-block">Field is required.</p>
+      </div>
+
+      <p ng-show="signupForm.password.$touched && signupForm.password2.$touched && (user.password !== user.password2) " class="alert-warning help-block">
+      Passwords don't match.</p>
+
+      <div class="alert-warning" role="alert" ng-show='signupError'>
+        {{signupError.data.error.message}}
+      </div>
+
+      <div class="row">
+        <div class="col-xs-8">
+          <div class="checkbox ng-icheck">
+            <label>
+              <input type="checkbox" ng-model='user.terms' checked="checked" > I agree to the <a href="#">terms</a>
+            </label>
+          </div>
+        </div>
+        <!-- /.col -->
+        <div class="col-xs-4">
+          <button ng-disabled='signupForm.$invalid' class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+        </div>
+        <!-- /.col -->
+      </div>
+    </form>
+  </div>
+</div>
+

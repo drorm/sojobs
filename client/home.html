@@ -1,0 +1,115 @@
+<div class="container-fluid main-app">
+
+  <div class="row">
+
+    <div class="intro-message col-lg-offset-2 col-lg-8">
+
+      <h1 ng-hide='showResults'> Search Jobs </h1>
+      <form class="form-inline" name='search' novalidate ng-submit="jobSearch()">  
+
+        <div class="form-group">
+
+          <ui-select  append-to-body="true" search-enabled='false' ng-model="distance.selected.value">
+            <ui-select-match>
+              <span ng-bind="$select.selected.name"></span>
+            </ui-select-match>
+            <ui-select-choices repeat="distance in (distances | filter: $select.search) track by distance.id">
+              <span ng-bind="distance.name"></span>
+            </ui-select-choices>
+          </ui-select>
+        </div>
+
+
+        <div class="form-group">
+          <input type="text" id='searchCity' name='searchCity' ng-model="search.city" class="form-control" placeholder="Enter city" required autofocus>
+        </div>
+        <div class="form-group">
+          <input type="text" id='searchQuery' name='searchQuery' ng-model="search.query" class="form-control" placeholder="Job title, company or tags" required autofocus>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input ng-model='search.remote' type="checkbox"> Also Remote
+            <span data-toggle="tooltip" data-placement="right" title="Show listings in the city you chose as well as reomte ones" class="glyphicon glyphicon-info-sign" aria-hidden="true"/>
+          </label>
+        </div>
+
+          <div class="checkbox">
+            <label>
+              <input ng-model='search.visa' type="checkbox"> Visa
+            <span data-toggle="tooltip" data-placement="right" title="Listings that mention visa" class="glyphicon glyphicon-info-sign" aria-hidden="true"/>
+            </label>
+          </div>
+
+
+        <button type="submit" class="btn btn-info">Search</button>
+          <div cg-busy="{promise:searchPromise,message:'Searching ...',templateUrl:'node_modules/angular-busy/angular-busy.html'}"></div>
+      </form>
+    </div>
+  </div>
+
+  <div ng-hide='showResults || runningSearch'> 
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-lg-offset-3 col-lg-8">
+    <hr/>
+    <h2> Previous Searches </h1>
+      <div ng-repeat="query in prevQueries"> 
+        <h4>
+          <a href='/#/?search={{query.q}}&location={{query.location}}&latitude={{query.latitude}}&longitude={{query.longitude}}&distance={{query.distance}}'>{{query.q}} jobs within {{query.distance}} miles from {{query.location}} </a>
+        </h4>
+      </div>
+    </div>
+    </div>
+  </div>
+
+
+  <div ng-show='showResults && !runningSearch'>
+
+
+    <hr/>
+    <div class="col-xs-12 col-sm-12 col-lg-9 col-lg-offset-1">
+      <div>
+      <strong class="text-default">{{results.length}} {{search.query}} </strong> listings around <strong class="text-default">{{search.city}}
+      <span ng-show='search.remote'> or remote</span>
+      <span ng-show='search.visa'> with visa mentioned</span>
+      </strong>
+
+      <h4 ng-show='!isAuthenticated' class='pull-right'>
+        To get notifications about new jobs
+        <a href='#/signup' class='btn btn-default'>Sign Up &nbsp;
+        </a>
+      </h4>
+      <h4 ng-show='isAuthenticated' class='pull-right'><a href ng-click='saveSearch()' class='btn btn-default'>
+          Save Search&nbsp;
+          <span class="glyphicon glyphicon-check"></span>
+        </a>
+      </h4>
+    </div>
+
+    <div ng-repeat="result in results" class='search-result'>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-lg-10">
+        <h4>
+          <a data-toggle="tooltip" data-placement="right" title="Open in New Tab" target='_blank' href='/#/listing?id={{result.id}}'class="glyphicon glyphicon-new-window" aria-hidden="true"></a>
+          <a href ng-click='toggleDescription($index)'  title=""> <span ng-bind-html="result.title"></span> </a>
+        </h4>
+        <span > {{calcElapsed(result.date_posted)}} ago</span>
+        <span class='label label-default'> {{result.city}}</span>
+        <span ng-show='result.remote' class='label label-info'> Remote</span>
+        <span ng-show='result.visa' class='label label-success'> Visa</span>
+
+        <p> <div ng-show='result.show'>  
+          <div ng-bind-html="result.desc"></div>
+          <hr/>
+          <a target='_blank' href='https://news.ycombinator.com/item?id={{result.original_id}}'>
+            See Original Listing
+          <a data-toggle="tooltip" data-placement="right" title="Open in New Tab" target='_blank' href='/#/listing?id={{result.id}}'class="glyphicon glyphicon-new-window" aria-hidden="true">
+          </a>
+        </div> </p>            
+      </div>
+
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+

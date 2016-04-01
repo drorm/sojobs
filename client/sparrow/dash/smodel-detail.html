@@ -1,0 +1,22 @@
+<div class='row'>
+  <div class='col-lg-12'>
+
+  <div class='text-center'>
+    <h1> 
+      <span> {{smodelId}}s </span>
+      <span class='pull-left'>
+      <a type="button" id="addData" class="btn btn-primary" ng-click="addRow()">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"/>
+          New
+        </a>
+      </span>
+      </h1>
+    </div>
+  </div>
+  </div>
+  <div class='row'>
+  <div class='col-lg-12'>
+    <div id="grid1" external-scopes="gridScope" ui-grid="{ theme: sky, data: gridInfo.rows, columnDefs:gridInfo.columnDefs}" class="grid">
+    </div>
+  </div>
+  </div>

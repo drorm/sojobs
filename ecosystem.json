@@ -1,0 +1,26 @@
+{
+  "apps" : [{
+    "name"        : "jobs",
+    "script"      : "server/server.js",
+    "watch"       : false,
+    "instances"   : -1,
+    "merge_logs"  : true,
+    "error_file:" : "logs/app.out",
+    "out_file:"   : "logs/app.err",
+    "env": {
+      "NODE_ENV"  : "development"
+    },
+    "env_production" : {
+       "NODE_ENV" : "production"
+    }
+  },
+  {
+    "name"        : "fetch",
+    "script"      : "server/fetchData/fetch.js",
+    "watch"       : false,
+    "instances"   : 1,
+    "merge_logs"  : true,
+    "error_file:" : "logs/fetch.out",
+    "out_file:"   : "logs/fetch.err"
+  }]
+}

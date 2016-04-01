@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8">
+    
+      <div class="panel panel-default">
+      <div class="panel-body">
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-8">
+                      <h2>{{currentUser.first}} {{currentUser.last}}</h2>
+                      <div class="login-box">
+
+                      <form class="form-signin" name='resetForm' novalidate ng-submit="reset()">  
+                        <h3 class="form-signin-heading">Change Password</h3>
+
+
+                        <div class="form-group has-feedback">
+                          <input  type="password" name='password' id="inputPassword" ng-model="user.password" class="form-control" placeholder="Password" required>
+                          <p ng-show="resetForm.password.$invalid && resetForm.password.$touched" class="alert-warning help-block">Password is required.</p>
+                          <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                        </div>
+
+                        <div class="form-group has-feedback">
+                          <input  type="password" name='password2' id="inputPassword2" ng-model="user.password2" class="form-control" placeholder="Password Again" required>
+                          <p ng-show="resetForm.password2.$invalid && resetForm.password2.$touched" class="alert-warning help-block">Password is required.</p>
+                          <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                        </div>
+
+                        <p ng-show="resetForm.password.$touched && resetForm.password2.$touched && (user.password !== user.password2) " class="alert-warning help-block">
+                        Passwords don't match.</p>
+
+                      <div class="row">
+                        <div class="col-xs-4">
+                          <button ng-disabled="resetForm.$invalid" class="btn btn-lg btn-primary btn-block" type="submit">Change</button>
+                        </div>
+                      </div>
+
+                      </form>
+                    </div>
+                    </div><!--/col-->          
+                        <div class="col-xs-12 col-sm-4 text-center">
+                                <img gravatar-src="currentUser.email" gravatar-size='200'  alt="" class="center-block img-circle img-responsive">
+                        </div><!--/col-->
+
+                  </div><!--/row-->
+              </div><!--/panel-body-->
+          </div><!--/panel-->
+
+    
+    
+    </div>
+  </div>
+</div>

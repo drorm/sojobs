@@ -1,0 +1,25 @@
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar" ng-controller='sidebarController'>
+
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+
+      <!-- Sidebar user panel (optional) -->
+
+      <!-- Sidebar Menu -->
+      <ul class="sidebar-menu">
+        <li class="header">Admin</li>
+        <li class="treeview">
+          <a href="#" id='sparrowModelTree' ng-click='togglTree()'><i class="fa fa-table"></i> <span>Models</span> <i class="fa fa-angle-left pull-right"></i></a>
+          <ul class="treeview-menu" ng-show='showTreeItem'>
+              <li ng-repeat="(model, value) in appModels">
+              <a href="#/models?name={{model}}"><i class="fa fa-circle-o"></i>{{model}}</a>
+              </li>
+          </ul>
+        </li>
+      </ul>
+      <!-- /.sidebar-menu -->
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+

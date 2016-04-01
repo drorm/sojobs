@@ -1,0 +1,41 @@
+<div class="container-fluid main-app">
+
+
+  <h1>
+    Listings Missing City
+  </h1>
+  <div>
+
+    <hr/>
+    <div class="col-xs-12 col-sm-12 col-lg-10 col-lg-offset-1">
+
+      <div ng-repeat="result in results" class='search-result'>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-lg-10">
+            <h4>
+              <a data-toggle="tooltip" data-placement="right" title="Open in New Tab" target='_blank' href='/#/listing?id={{result.id}}'class="glyphicon glyphicon-new-window" aria-hidden="true"></a>
+              <a href ng-click='toggleDescription($index)'  title=""> <span ng-bind-html="result.title"></span> </a>
+            </h4>
+            <span > {{calcElapsed(result.date_posted)}} ago</span>
+            <span ng-show='result.visa' class='label label-success'> Visa</span>
+
+            <p> <div ng-show='result.show'>  
+              <form class="form-inline" name='search' novalidate ng-submit="submitCity($index, result.id)">  
+
+                <div class="form-group">
+                  <input type="text" id='missing{{$index}}' name='missing{{result.id}}' class="form-control" placeholder="Enter city" required autofocus>
+                </div>
+                <button type="submit" class="btn btn-info">Save</button>
+              </form>
+
+              <div ng-bind-html="result.description"></div>
+              <hr/>
+              </div> </p>            
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

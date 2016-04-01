@@ -1,0 +1,15 @@
+<div ng-controller="modalController" >
+  <div class="modal-header">
+    <h3 class="modal-title">{{operationType}} {{smodelId}} </h3>
+  </div>
+  <div class="modal-body">
+
+    <form novalidate class="well form-horizontal"> 
+    <formly-form model="myForm" fields="formlyFields" form="insertUpdate">
+        <button class="btn btn-primary" ng-disabled='insertUpdate.$invalid' ng-click="submit(myForm)">{{operationType}}</button>
+        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    </formly-form>
+</form>
+
+  </div>
+</div>

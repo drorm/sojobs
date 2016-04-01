@@ -1,0 +1,37 @@
+<div class="container-fluid">
+
+
+
+    <div class="col-md-1">
+    </div>
+
+    <section class="col-xs-12 col-sm-12 col-md-10">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-10 excerpet">
+        <h3>
+          <a href="#" ng-click='toggleDescription($index)'  title=""> <span ng-bind-html="result.title"></span> </a>
+        </h3>
+        <span > {{calcElapsed(result.date_posted)}} ago</span>
+        <span class='label label-default'> {{result.city}}</span>
+        <span ng-show='result.remote' class='label label-info'> Remote</span>
+        <span ng-show='result.visa' class='label label-success'> Visa</span>
+
+        <p> 
+        <div ng-bind-html="result.desc"></div>
+        <hr/>
+        <h4> 
+          <a target='_blank' href='https://news.ycombinator.com/item?id={{result.original_id}}'>
+            See Original Listing
+          <a data-toggle="tooltip" data-placement="right" title="Open in New Tab" target='_blank' href='/#/listing?id={{result.id}}'class="glyphicon glyphicon-new-window" aria-hidden="true">
+          </a>
+        </h4>
+        </p>            
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-2">
+      </div>
+
+      </div>
+    </section>
+</div>
+

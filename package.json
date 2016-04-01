@@ -1,0 +1,45 @@
+{
+  "name": "sojobs",
+  "readme": "README.md",
+  "license": "AGPL-3.0",
+  "version": "0.1.0",
+  "main": "server/server.js",
+  "scripts": {
+    "pretest": "jshint ."
+  },
+  "dependencies": {
+    "async": "^1.5.2",
+    "body-parser": "^1.14.2",
+    "compression": "^1.0.3",
+    "cors": "^2.5.2",
+    "errorhandler": "^1.1.1",
+    "html-to-text": "^2.1.0",
+    "lodash": "^4.0.1",
+    "loopback": "^2.14.0",
+    "loopback-boot": "^2.6.5",
+    "loopback-connector-postgresql": "^2.4.0",
+    "loopback-datasource-juggler": "^2.19.0",
+    "morgan": "^1.7.0",
+    "q": "^1.4.1",
+    "request": "^2.69.0",
+    "sanitize-html": "^1.11.3",
+    "serve-favicon": "^2.0.1",
+    "winston": "^2.1.1"
+  },
+  "devDependencies": {
+    "assert": "^1.3.0",
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.12.0",
+    "grunt-jscs": "^2.7.0",
+    "grunt-mocha-test": "^0.12.7",
+    "grunt-shell": "^1.2.1",
+    "jshint": "^2.5.6",
+    "mocha": "^2.4.5",
+    "pm2": "^1.0.2",
+    "should": "^8.3.0"
+  },
+  "repository": {
+    "type": "",
+    "url": ""
+  }
+}

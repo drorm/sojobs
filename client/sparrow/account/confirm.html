@@ -1,0 +1,15 @@
+<div class="login-box">
+  <div class="login-box-body">
+    <div class='form-signin'>
+      <h3>
+        {{confirmMessage}}
+      </h3>
+      <div ng-hide='confirmError'>
+        <a href="#/login" class="btn btn-lg btn-primary">{{pleaseLoginButton}}</a>
+      </div>
+      <div class="alert alert-danger" role="alert" id="login_error" ng-show='confirmError'>
+        Registration Failed
+      </div>
+    </div>
+  </div>
+</div>

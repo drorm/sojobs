@@ -1,0 +1,80 @@
+  <header class="main-header">
+    <!-- Logo -->
+    <a href="/" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>SPA</b></span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>Sojobs</b></span>
+    </a>
+
+    <nav class="navbar navbar-static-top">
+
+      <div class="container-fluid">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+            <i class="fa fa-bars"></i>
+          </button>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li ng-class="{ active: isActive('/')}"><a href="#/">Home <span class="sr-only">(current)</span></a></li>
+            <li ng-show='isAdmin'><a href="#/missing">Fix Missing</a></li>
+            <li ng-show='isAuthenticated'><a href="#/emailNotifications">Email Notifications</a></li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+        <!-- Navbar Right Menu -->
+        <div class="navbar-custom-menu">
+          <ul class="nav navbar-nav">
+            <li ng-hide="isAuthenticated">
+              <a href="#/login">Login</a>
+            </li>
+            <li ng-hide="isAuthenticated">
+              <a href="#/signup">Signup</a>
+            </li>
+          </ul>
+        </div>
+        <div ng-show='isAuthenticated' class="navbar-custom-menu">
+          <ul class="nav navbar-nav">
+
+            <!-- User Account Menu -->
+            <li class="dropdown user user-menu">
+              <!-- Menu Toggle Button -->
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <!-- The user image in the navbar-->
+                <img gravatar-src="currentUser.email" gravatar-size='160'  alt="User Image" class="user-image">
+                <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                <span class="hidden-xs">{{currentUser.fullName}}</span>
+              </a>
+              <ul class="dropdown-menu">
+                <!-- The user image in the menu -->
+                <li class="user-header">
+                  <img gravatar-src="currentUser.email" gravatar-size='160'  alt="User Image" class="img-circle">
+
+                  <p>
+                  {{currentUser.fullName}} 
+                  <!--
+                    <small>Member since Nov. 2012</small>
+                    -->
+                  </p>
+                </li>
+                <!-- Menu Body -->
+                <!-- Menu Footer-->
+                <li class="user-footer">
+                  <div class="pull-left">
+                    <a href="#/profile" class="btn btn-default btn-flat">Profile</a>
+                  </div>
+                  <div class="pull-right">
+                    <a href="#" ng-click='logout()' class="btn btn-default btn-flat">Sign out</a>
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <!-- /.navbar-custom-menu -->
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
+  </header>
+  <!-- Main Header -->
+

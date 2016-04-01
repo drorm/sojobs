@@ -1,0 +1,27 @@
+<table class='table'>
+	<tr>
+		<th>
+			Model
+		</th>
+		<th>
+			Attributes
+		</th>
+	</tr>
+	<tr ng-repeat="(name, fields) in smodel">
+		<td> 
+			{{name}}
+		</td> 
+		<td> 
+			<table class='table table-condensed'>
+				<tr ng-repeat="(fname, field) in fields">
+						<td> 
+							{{ fname }} 
+						</td>
+						<td> 
+							{{ field }} 
+						</td>
+					</tr>
+			</table>
+		</td>
+	</tr>
+</table>
