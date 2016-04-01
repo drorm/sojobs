@@ -1,6 +1,7 @@
 #Overview
 
 Sojobs scans the jobs from the monthly hacker news "who is hiring" thread and loads them into a database, and makes them available for searching, by city, key word, visa or remote option.
+See https://sojobs.me
 
 #Prerequesites
 
@@ -12,29 +13,29 @@ Sojobs scans the jobs from the monthly hacker news "who is hiring" thread and lo
 
 * git clone http://github.com/drorm/sojobs
 * for each of the following copy the config files and adjust the credentials, email addresses, server names, etc
- * cp server/config.sample.json  server/config.json
-  * host
-  * port
- * cp server/sparrowConfig.sample.js  server/sparrowConfig.js 
-  * initAdmin -- this is the admin of the app. 
-   * email
-   * password
-   * first
-   * last
-  * emailFrom -- which user are notifications like email verification are coming from
- * cp server/datasources.local.sample.js  server/datasources.local.js
-  * db -- database credentials
-  * mail/smtp -- for email verification when users sign up
+  * cp server/config.sample.json  server/config.json
+    * host
+    * port
+  * cp server/sparrowConfig.sample.js  server/sparrowConfig.js 
+    * initAdmin -- this is the admin of the app. 
+      * email
+      * password
+      * first
+      * last
+    * emailFrom -- which user are notifications like email verification are coming from
+  * cp server/datasources.local.sample.js  server/datasources.local.js
+    * db -- database credentials
+    * mail/smtp -- for email verification when users sign up
 
 #Build
 * cd jobs
 * npm install
 * grunt. This will also do the following:
- * cd client
-  * npm install
-  * grunt
+  * cd client
+    * npm install
+    * grunt
 * If you're going to make changes to the client javascript, you should run the following so it builds the concatenated file
- * grunt watch
+  * grunt watch
 
 #Db setup
 * psql jobs jobs < server/db/schema.sql
@@ -42,16 +43,16 @@ Sojobs scans the jobs from the monthly hacker news "who is hiring" thread and lo
 
 
 # Other
-* set up Google places for the auto complete: https://console.developers.google.com/apis/credentials?project=job-search-tryx
+* set up Google places for the auto complete: https://console.developers.google.com/apis/credentials
 * SSL cert via let's encrypt https://github.com/Daplie/node-letsencrypt
 
 #Run
 
-#Run directly
+##Run directly
 * node server/fetchData/fetch.js -- fetches the jobs listings from Hacker News
 * node server/server.js -- this is the main node/express/loopback.js app
 
-#Use pm2
+##Use pm2
 Use the pm2 process manager, http://pm2.keymetrics.io/
 
 * run node\_modules/.bin/pm2 start ecosystem.json 
@@ -60,5 +61,4 @@ Use the pm2 process manager, http://pm2.keymetrics.io/
 This will start two apps:
 * server/server.js -- this is the main node/express/loopback.js app
 * server/fetchData/fetch.js -- fetches the jobs listings from Hacker News
-
 
