@@ -26,7 +26,7 @@
     "angular-ui-router": "^0.2.18",
     "angular-ui-select": "^0.12.100",
     "api-check": "^7.5.5",
-    "bootstrap": "^3.3.6",
+    "bootstrap": "^4.1.2",
     "icheck": "~> 3.0.0",
     "jquery": "~> 3.0.0.",
     "lodash": "^4.6.1",
